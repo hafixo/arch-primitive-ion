@@ -8,7 +8,7 @@ Ultra high performance network relay for embedded system + Ionizer **(commercial
 
 Comes with easy automation scripts.
 
-- **primitive.sh** _(build, clean, run)_
+- **primitive-ion.sh** _(build, clean, run)_
 - **link.sh** _(iptables)_
 
 The `primitive-ion.sh` will automatically install necessary components for you, each time you _**build**_, _**clean**_ or _**run**_ the package.
