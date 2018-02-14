@@ -19,6 +19,8 @@ The `primitive-ion.sh` will automatically install necessary components for you, 
 
 (( ? )) **Unit-Test** is located at `/arch-primitive-ion/src/test`.
 
+(( ? )) **Ionizer** more than 65000+ Blocklist (hardocded)
+ 
 ---
 
 ### Build & Test
