@@ -47,6 +47,12 @@ $ ./primitive-ion.sh --clean
 $ ./primitive-ion.sh --run
 ```
 
+Use the nerd way,
+
+```bash
+$ java -XX:+HeapDumpOnOutOfMemoryError -Xmx1024m -jar target/arch-primitive-ion-0.9.7.5-SNAPSHOT-evaclabs.jar
+```
+
 ### Use Docker Image
 
 Pull image from Docker Hub,
