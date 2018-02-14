@@ -26,7 +26,7 @@ public class RelayDNSResolver implements HostResolver {
 	@Override
 	public InetSocketAddress resolve(String host, int port) throws UnknownHostException {
 		if (adServers.contains(host)) {
-			log.info("[" + adServers.getSessionBlockedAds() + "] Blocked Ad request from: " + host);
+			log.info("[" + adServers.getSessionBlockedAds() + "] Blocked object request from: " + host);
 
 			// InetAddress serverInetAddr = InetAddress.getByName("127.0.0.1");
 			// return new InetSocketAddress(serverInetAddr, 0);
