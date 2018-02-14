@@ -1,2 +1,68 @@
 # arch-primitive-ion
-Ultra high performance network relay + Ionizer for embedded system (commercially obsolete)
+
+Ultra high performance network relay for embedded system + Ionizer **(commercially obsolete)**
+
+---
+
+### Prerequisites
+
+Comes with easy automation scripts.
+
+- **primitive.sh** _(build, clean, run)_
+- **link.sh** _(iptables)_
+
+The `primitive-ion.sh` will automatically install necessary components for you, each time you _**build**_, _**clean**_ or _**run**_ the package.
+
+(( ! )) Extra 600MB maven components will be installed.
+
+(( ? )) **Main Source** is located at `/arch-primitive-ion/src/main`.
+
+(( ? )) **Unit-Test** is located at `/arch-primitive-ion/src/test`.
+
+---
+
+### Build & Test
+
+**Note:** _Recommended to compile the `arch-primitive` with server CPUs_
+
+```bash
+$ ./primitive-ion.sh --build
+```
+
+### Clean Package
+
+This will restore to original, removed ssl certificates, surefire reports, etc.
+
+```bash
+$ ./primitive-ion.sh --clean
+```
+
+### Run the package
+
+**Note:** _Recommended to test the `arch-primitive` with server CPUs_
+
+```bash
+$ ./primitive-ion.sh --run
+```
+
+### Use Docker Image
+
+Pull image from Docker Hub,
+
+```bash
+$ docker pull loouislow81/arch-primitive-ion
+```
+
+Run the container,
+
+```bash
+$ docker run -it -p 7878:7878 loouislow81/arch-primitive-ion
+```
+
+Set up as proxy, use the local ip address or (127.0.0.1, localhost), port number is 7878 across these protocols HTTP, HTTPS, FTP & SOCKS.
+
+(( ! )) You can close the Terminal that running the Docker Container, the arch-primitive will keep running at background, until you restart the system or the Docker services.
+
+---
+
+(C) Copyright EVAC Laboratories.
