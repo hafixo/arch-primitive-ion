@@ -2,8 +2,8 @@
 
 Ultra high performance network relay for embedded system **(commercially obsolete)**
 
-- + Ionizer (block unwanted object)
-- + 3x acceleration
+- **(new)** Ionizer (block unwanted object)
+- **(new)** 3x acceleration
 
 ---
 
