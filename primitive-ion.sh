@@ -9,7 +9,7 @@
 ######## vars ##########
 
 # path
-fullPath="/home/$USER/Documents/misc/mess/sabproxy"
+fullPath="/home/$USER/Documents/play/playground/arch-primitive-ion"
 
 # ansi
 blue='\e[94m'
