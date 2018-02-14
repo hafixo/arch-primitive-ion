@@ -44,7 +44,7 @@ public class ARCHServer {
   private String[] hostsSources;
 
   @Value("${application.port.proxy}")
-  private String app_port_proxy = "";
+  private String node_port = "";
 
   public static void main(String[] args) {
     SpringApplication.run(ARCHServer.class, args);
@@ -224,7 +224,7 @@ public class ARCHServer {
 
   @Bean
   public HttpProxyServer httpProxy() {
-    log.info("Starting proxy on port: " + app_port_proxy);
+    log.info("Creating new relay node on port: " + node_port);
 
     Utils.initializeUserSettings();
     User sabpUser = new User();
@@ -233,7 +233,7 @@ public class ARCHServer {
 
     HttpProxyServer server =
     DefaultHttpProxyServer.bootstrap()
-    .withPort(Integer.valueOf(app_port_proxy))
+    .withPort(Integer.valueOf(node_port))
     .withAllowLocalOnly(false)
     .withTransparent(true)
     .withServerResolver(new RelayDNSResolver(adServers))

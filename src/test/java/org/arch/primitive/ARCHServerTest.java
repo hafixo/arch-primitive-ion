@@ -39,7 +39,7 @@ public class ARCHServerTest {
     private static String IP_REQUEST_SABPROXY_COM = "http://72.14.188.14";
 
     @Value("${application.port.proxy}")
-    private String app_port_proxy = "";
+    private String node_port = "";
 
     private static String PROXY_ADDRESS = "127.0.0.1";
 
@@ -53,7 +53,7 @@ public class ARCHServerTest {
 
     @Test
     public void testHTTPAdBlock() {
-        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(app_port_proxy), "http");
+        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(node_port), "http");
         CloseableHttpClient httpclient = HttpClients.createDefault();
         String bodyResponse = "";
         int statusResponse = 0;
@@ -76,7 +76,7 @@ public class ARCHServerTest {
 
     @Test
     public void testHTTPAdBlockProxiedVsNonProxied() {
-        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(app_port_proxy), "http");
+        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(node_port), "http");
         String bodyResponse = "";
         String bodyResponseSABProxied = "";
 
@@ -114,7 +114,7 @@ public class ARCHServerTest {
 
     @Test
     public void testHTTPSAdBlock() {
-        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(app_port_proxy), "http");
+        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(node_port), "http");
         int statusResponseSABProxied = 0;
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
@@ -161,7 +161,7 @@ public class ARCHServerTest {
 
     @Test
     public void testIPHandling() {
-        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(app_port_proxy), "http");
+        HttpHost proxy = new HttpHost(PROXY_ADDRESS, Integer.valueOf(node_port), "http");
         CloseableHttpClient httpclient = HttpClients.createDefault();
         String bodyResponse = "";
         int statusResponse = 0;
