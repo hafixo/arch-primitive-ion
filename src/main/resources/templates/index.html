@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>ARCH-Primitive II</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="arch-logo.png">
+	<link rel="stylesheet" href="css/vendor.css">
+	<script>
+		var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) : {};
+		var themeName = themeSettings.themeName || '';
+		if (themeName) {
+			document.write('<link rel="stylesheet" id="theme-style" href="css/app-' + themeName + '.css">');
+		} else {
+			document.write('<link rel="stylesheet" id="theme-style" href="css/app.css">');
+		}
+	</script>
+</head>
+
+<body>
+	<div class="main-wrapper">
+		<div class="app" id="app">
+
+			<header class="header">
+				<div class="header-block header-block-collapse hidden-lg-up">
+					<button class="collapse-btn" id="sidebar-collapse-btn">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<div class="header-block header-block-nav">
+					<ul class="nav-profile">
+					</ul>
+				</div>
+			</header>
+
+			<aside class="sidebar">
+				<div class="sidebar-container">
+					<div class="sidebar-header">
+						<div class="brand">
+							{{app_name}}
+						</div>
+					</div>
+					<nav class="menu">
+						<ul class="nav metismenu" id="sidebar-menu">
+							<li class="active">
+								<a href="/"> <i class="fa fa-home"></i> Dashboard </a>
+							</li>
+							<li>
+								<a href="blocked-domains.html"> <i class="fa fa-crosshairs"></i> Blocked Domains </a>
+							</li>
+							<li>
+								<a href="update.html"> <i class="fa fa-refresh"></i> Check Update </a>
+							</li>
+							<li>
+								<a href="sysinfo.html"> <i class="fa fa-info"></i> System Information </a>
+							</li>
+							<li>
+								<a href="logout"> <i class="fa fa-sign-out"></i> Logout </a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+				<footer class="sidebar-footer">
+					<ul class="nav metismenu" id="customize-menu">
+						<li>
+							<ul>
+								<li class="customize">
+									<div class="customize-item">
+										<div class="row customize-header">
+											<div class="col-xs-4"></div>
+											<div class="col-xs-4"><label class="title">fixed</label></div>
+											<div class="col-xs-4"><label class="title">static</label></div>
+										</div>
+										<div class="row hidden-md-down">
+											<div class="col-xs-4"><label class="title">Sidebar:</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="sidebarPosition"
+												value="sidebar-fixed">
+												<span></span>
+											</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="sidebarPosition" value="">
+												<span></span>
+											</label></div>
+										</div>
+										<div class="row">
+											<div class="col-xs-4"><label class="title">Header:</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="headerPosition"
+												value="header-fixed">
+												<span></span>
+											</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="headerPosition" value="">
+												<span></span>
+											</label></div>
+										</div>
+										<div class="row">
+											<div class="col-xs-4"><label class="title">Footer:</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="footerPosition"
+												value="footer-fixed">
+												<span></span>
+											</label></div>
+											<div class="col-xs-4"><label>
+												<input class="radio" type="radio" name="footerPosition" value="">
+												<span></span>
+											</label></div>
+										</div>
+									</div>
+									<div class="customize-item">
+										<ul class="customize-colors">
+											<li><span class="color-item color-red" data-theme="red"></span></li>
+											<li><span class="color-item color-orange" data-theme="orange"></span></li>
+											<li><span class="color-item color-green active" data-theme=""></span></li>
+											<li><span class="color-item color-seagreen" data-theme="seagreen"></span></li>
+											<li><span class="color-item color-blue" data-theme="blue"></span></li>
+											<li><span class="color-item color-purple" data-theme="purple"></span></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<a href=""> <i class="fa fa-cog"></i> Customize </a>
+						</li>
+					</ul>
+				</footer>
+			</aside>
+
+			<div class="sidebar-overlay" id="sidebar-overlay"></div>
+			<article class="content dashboard-page">
+				<section class="section">
+					<div class="row sameheight-container">
+						<div class="col col-xs-12 col-sm-12 col-md-6 col-xl-5 stats-col">
+							<div class="card sameheight-item stats" data-exclude="xs">
+								<div class="card-header card-header-sm bordered">
+									<div class="header-block">
+										<h3 class="title"> Stats </h3>
+									</div>
+								</div>
+								<div class="row row-sm stats-container">
+									<div class="col-xs-12 col-sm-6 stat-col">
+										<div class="stat-icon"><i class="fa fa-fire"></i></div>
+										<div class="stat">
+											<div class="value"> {{trafficRequests}}</div>
+											<div class="name"> Requests</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 stat-col">
+										<div class="stat-icon"><i class="fa fa-filter"></i></div>
+										<div class="stat">
+											<div class="value"> {{trafficAdsRequests}}</div>
+											<div class="name"> Blocked Ads</div>
+										</div>
+										<progress class="progress stat-progress" value="{{trafficAdsRequests}}" max="{{trafficRequests}}">
+											<div class="progress">
+												<span class="progress-bar" style="width: 25%;"></span>
+											</div>
+										</progress>
+									</div>
+									<div class="col-xs-12 col-sm-6  stat-col">
+										<div class="stat-icon"><i class="fa fa-clock-o"></i></div>
+										<div class="stat">
+											<div class="value"> {{uptime}}</div>
+											<div class="name"> Uptime</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6  stat-col">
+										<div class="stat-icon"><i class="fa fa-line-chart"></i></div>
+										<div class="stat">
+											<div class="value"> {{trafficAdsPercentage}} %</div>
+											<div class="name"> Ads Percentage</div>
+										</div>
+										<progress class="progress stat-progress" value="{{trafficAdsPercentage}}" max="100">
+											<div class="progress">
+												<span class="progress-bar" style="width: 60%;"></span>
+											</div>
+										</progress>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col col-xs-12 col-sm-12 col-md-6 col-xl-7 history-col">
+							<div class="card sameheight-item" data-exclude="xs">
+								<div class="card-header card-header-sm bordered">
+									<div class="header-block">
+										<h3 class="title">Ad Sources </h3>
+									</div>
+								</div>
+								<div class="card-block">
+									<div class="tab-content">
+										<p>Blocking <strong>{{{blocked.domains.total}}}</strong> ads/tracking domains.</p>
+										<p>Last updated: {{{blocked.domains.lastupdated}}}</p>
+										<p><button class="btn btn-primary updatebutton">Update</button></p>
+
+										<p class="title"> Hosts Sources [{{{blocked.domains.sources.number}}}]</p>
+
+										{{{blocked.domains.sources}}}
+										<!-- <canvas id="ads_domains"></canvas> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</section>
+
+				<section class="section">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-block">
+									<div class="card-title-block">
+										<h3 class="title"> Top 20 </h3>
+									</div>
+									<section class="example">
+										<div class="table-flip-scroll">
+											<table class="table thead-default table-striped table-bordered table-hover flip-content">
+												<thead class="flip-header">
+													<tr>
+														<th>#</th>
+														<th>Source</th>
+														<th>Requests</th>
+													</tr>
+												</thead>
+												<tbody>
+													{{{top20DomainsTableData}}}
+												</tbody>
+											</table>
+										</div>
+									</section>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</article>
+
+			<footer class="footer">
+
+			</footer>
+
+		</div>
+	</div>
+
+	<div class="ref" id="ref">
+		<div class="color-primary"></div>
+		<div class="chart">
+			<div class="color-primary"></div>
+			<div class="color-secondary"></div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/Chart.min.js"></script>
+	<script src="js/vendor.js"></script>
+	<script src="js/app.js"></script>
+
+	// @formatter:off
+	<script>
+		var randomColorGenerator = function() {
+			return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+		};
+		var data = {
+			labels: [{
+				{
+					{
+						topDomainsName
+					}
+				}
+			}],
+			datasets: [{
+				data: [{
+					{
+						topDomainsData
+					}
+				}],
+				backgroundColor: [{
+					{
+						randomColor
+					}
+				}],
+				hoverBackgroundColor: [{
+					{
+						randomColorHighLight
+					}
+				}]
+			}]
+		};
+
+		var options = {
+			responsive: true,
+			maintainAspectRatio: false,
+			legend: {
+				display: false
+			},
+			scaleBeginAtZero: true
+		}
+
+		var ctx = "ads_domains";
+
+		var adDomainsPieChart = new Chart(ctx, {
+			type: 'pie',
+			data: data,
+			options: options
+		});
+	</script>
+
+	// @formatter:on
+
+
+</body>
+
+</html>
