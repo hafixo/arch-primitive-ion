@@ -167,8 +167,7 @@ function start_app_service() {
   fi
 
   echo -e "$title init service >> started"
-  echo -e "$title gui >> http://localhost:8080"
-  echo -e "$title server >> (ipaddress, 127.0.0.1, 0.0.0.0, localhost):(<port, 3129)"
+  echo -e "$title server >> (ipaddress, 127.0.0.1, 0.0.0.0, localhost):(<port, 7788)"
   echo
 }
 
