@@ -2,7 +2,7 @@
 
 Ultra high performance network relay for embedded system **(commercially obsolete)**
 
-- **(new)** Ionizer (block unwanted object)
+- **(new)** Ionizer (block unwanted object) (patterns updated regulary)
 - **(new)** 3x acceleration
 
 ---
@@ -23,7 +23,7 @@ The `primitive-ion.sh` will automatically install necessary components for you, 
 (( ? )) **Unit-Test** is located at `/arch-primitive-ion/src/test`.
 
 (( ? )) **Ionizer** more than 65000+ Blocklist (hardocded)
- 
+
 ---
 
 ### Build & Test
@@ -43,6 +43,15 @@ $ ./primitive-ion.sh --clean
 ```
 
 ### Run the package
+
+Oh! Before you run the package, you need to change the path in the `primitive-ion.sh` file. And the same to Docker Container, if you want to create an image manually. Example at below.
+
+```bash
+######## vars ##########
+
+# path
+fullPath="/home/$USER/Documents/play/playground/arch-primitive-ion"
+```
 
 **Note:** _Recommended to test the `arch-primitive` with server CPUs_
 
@@ -64,7 +73,7 @@ Pull image from Docker Hub,
 $ docker pull loouislow81/arch-primitive-ion
 ```
 
-Run the container,
+Run the container
 
 ```bash
 $ docker run -it -p 7878:7878 loouislow81/arch-primitive-ion
