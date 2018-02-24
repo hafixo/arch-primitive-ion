@@ -5,6 +5,8 @@ Ultra high performance network relay for embedded system **(commercially obsolet
 - **(new)** Ionizer (block unwanted object) (patterns updated regulary)
 - **(new)** 3x acceleration
 
+> You might also want to chech the previous version [**arch-primitive**](https://github.com/loouislow81/arch-primitive)
+
 ---
 
 ### Prerequisites
