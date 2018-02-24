@@ -30,6 +30,8 @@ The `primitive-ion.sh` will automatically install necessary components for you, 
 
 ### Build & Test
 
+Packed with unit-tests, if you have made some changes in the actual code, you might want to write your own unit-test to make sure all your new functions are actually working.
+
 **Note:** _Recommended to compile the `arch-primitive` with server CPUs_
 
 ```bash
