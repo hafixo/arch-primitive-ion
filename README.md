@@ -83,6 +83,13 @@ Run the container
 $ docker run -it -p 7878:7878 loouislow81/arch-primitive-ion
 ```
 
+If you can't get the Docker Container fired up (but usually 100% worked), use the nerd way:
+
+```bash
+$ iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 7878 -j DNAT --to-destination 172.17.0.2:7878
+
+```
+
 Set up as proxy, use the local ip address or (0.0.0.0, 127.0.0.1, localhost), port number is 7878 across these protocols HTTP, HTTPS, FTP & SOCKS.
 
 **(( ! ))** You can close the Terminal that running the Docker Container, the arch-primitive will keep running at background, until you restart the system or the Docker services.
