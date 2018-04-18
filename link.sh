@@ -22,7 +22,7 @@ title="${blue}[arch]${nc}"
 error="${red}[error]${nc}"
 
 # network interfaces
-device1="wlx44334ceb781b"
+device1="wlp4s0"
 device2="enp3s0"
 bridge="docker0"
 
@@ -36,6 +36,9 @@ https_port_from="443"
 # to relay ports
 http_port_to="7878"
 https_port_to="7878"
+
+# router
+router_gateway="192.168.182.1"
 
 # enable ip forward
 ip_forward_mode="1"
@@ -61,7 +64,9 @@ function prerequisites() {
     else
       # install iptables package
       echo -e "$title installing iptables"
-      apt install -y iptables iptables-persistent
+      apt install -y \
+        iptables \
+        iptables-persistent
   fi
 }
 
@@ -161,11 +166,6 @@ function docker_rules() {
 
 function intercept_network() {
   # Forward traffic to ARCH relay port
-  # (http)
-  ${policier} -t nat -A OUTPUT -p tcp -m owner ! --uid-owner proxy --dport ${http_port_from} -j REDIRECT --to-port ${http_port_to}
-  # (https)
-  ${policier} -t nat -A OUTPUT -p tcp -m owner ! --uid-owner proxy --dport ${https_port_from} -j REDIRECT --to-port ${https_port_to}
-
   # //////// WLAN ////////
   # (http)
   echo -e "$title intercept device ${device1} port ${http_port_from} to ${http_port_to}"
@@ -179,22 +179,15 @@ function intercept_network() {
   ${policier} -t nat -A POSTROUTING -o ${device1} -p tcp --dport ${https_port_from} -j MASQUERADE
 }
 
-function alternative_intercept() {
-  # //////// WLAN ////////
-  # (http)
-  echo
-  #iptables -t nat -A OUTPUT -p tcp -i ${device1} --dport ${http_port_from} -j REDIRECT --to-port ${http_port_to}
-  iptables -t nat -A PREROUTING -i ${device1} -p tcp -m multiport --dports 80,443 -j REDIRECT --to-port 7878
-  #iptables -t nat -A POSTROUTING -o ${device1} -j MASQUERADE
-}
-
 function restart_arch() {
-  echo -e "$title restart services"
-  service archloop restart
+  echo -e "$title restart docker services"
+  service docker restart
+  echo -e "$title restart arch-primitive-ion container"
+  docker run -it -p ${http_port_to} loouislow81/arch-primitive-ion
 }
 
 function show_statistics() {
-  echo "-----------------------------------"
+  echo "----/ Details /--------------------"
   echo "WLAN: $device1"
   echo "LAN: $device2"
   echo "VLAN: $bridge"
