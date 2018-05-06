@@ -8,6 +8,8 @@
 
 ######## vars ##########
 
+ver="0.9.7.5"
+
 # path
 fullPath="/home/$USER/Documents/play/playground/arch-primitive-ion"
 
@@ -174,7 +176,7 @@ function start_app_service() {
 ######## init ##########
 
 echo -e "${blue}-------------------------------------------------------------------------------"
-echo -e " ARCH {primitive} Ion : Ultra High Performance Network Relay"
+echo -e " ARCH {primitive} Ion : Ultra High Performance Network Relay $ver"
 echo -e "-------------------------------------------------------------------------------${nc}"
 
 while test "$#" -gt 0;

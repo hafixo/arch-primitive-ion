@@ -153,7 +153,7 @@ public class ARCHServer {
     } else if (latestVersion.equals(runningVersion)) {
       model.put("upgrade.info", "Running latest version: " + latestVersion);
     } else if (updater.upgradable()) {
-      model.put("upgrade.info", "ARCH-Primitive II is upgrading and will restart automatically.<br/>This may take a while...");
+      model.put("upgrade.info", "ARCH-Primitive Ion is upgrading and will restart automatically.<br/>This may take a while...");
       if (!FileUtils.fileExists(Updater.tempUpgradeFlagFile) && !FileUtils.fileExists(Updater.tempUpdateFailLogFile)) {
         Runnable upgradeARCHprimitive = () -> {
           log.info("Upgrade started. This may take a while and ARCH-Primitive II will restart automatically.");
@@ -237,7 +237,7 @@ public class ARCHServer {
     .withAllowLocalOnly(false)
     .withTransparent(true)
     .withServerResolver(new RelayDNSResolver(adServers))
-    .withName("ARCH-Primitive-II")
+    .withName("ARCH primitive-ion")
     .start();
 
     return server;
