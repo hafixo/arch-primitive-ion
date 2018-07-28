@@ -13,12 +13,12 @@ import static org.springframework.http.HttpStatus.OK;
 
 @Component
 public class IonErrorViewResolver implements ErrorViewResolver {
-	@Override
-	public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> model) {
-		if (HttpStatus.NOT_FOUND == status) {
-			return new ModelAndView("adResponse", model, OK);
-		} else {
-			return new ModelAndView("error", model, status);
-		}
-	}
+  @Override
+  public ModelAndView resolveErrorView(HttpServletRequest request, HttpStatus status, Map<String, Object> model) {
+    if (HttpStatus.NOT_FOUND == status) {
+      return new ModelAndView("adResponse", model, OK);
+    } else {
+      return new ModelAndView("error", model, status);
+    }
+  }
 }

@@ -1,5 +1,7 @@
 # arch-primitive-ion
 
+**!! (rebooted version for IntelliJ IDEA IDE) !!**
+
 Ultra high performance network relay for embedded system **(commercially obsolete)**
 
 - **(new)** Ionizer (block unwanted object) (patterns updated regulary)

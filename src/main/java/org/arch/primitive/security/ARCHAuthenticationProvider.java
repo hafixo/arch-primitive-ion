@@ -14,28 +14,28 @@ import java.util.ArrayList;
 
 @Component
 public class ARCHAuthenticationProvider implements AuthenticationProvider {
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@Override
-	public Authentication authenticate(Authentication authentication)
-	throws AuthenticationException {
+  @Override
+  public Authentication authenticate(Authentication authentication)
+      throws AuthenticationException {
 
-		String name = authentication.getName();
-		String password = DigestUtils.md5Hex(authentication.getCredentials().toString());
+    String name = authentication.getName();
+    String password = DigestUtils.md5Hex(authentication.getCredentials().toString());
 
-		User sabpUser = new User();
-		if (name.equals(sabpUser.getUserName()) && password.equals(sabpUser.getPasswordHash())) {
-			log.info("Successful login from user '"+name+"'");
-			return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
-		} else {
-			log.warn("Invalid login attempt (user: "+name+")");
-			return null;
-		}
-	}
+    User sabpUser = new User();
+    if (name.equals(sabpUser.getUserName()) && password.equals(sabpUser.getPasswordHash())) {
+      log.info("Successful login from user '" + name + "'");
+      return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
+    } else {
+      log.warn("Invalid login attempt (user: " + name + ")");
+      return null;
+    }
+  }
 
-	@Override
-	public boolean supports(Class<?> authentication) {
-		return authentication.equals(
-		UsernamePasswordAuthenticationToken.class);
-	}
+  @Override
+  public boolean supports(Class<?> authentication) {
+    return authentication.equals(
+        UsernamePasswordAuthenticationToken.class);
+  }
 }

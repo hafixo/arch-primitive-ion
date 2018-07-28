@@ -32,14 +32,14 @@ public class Utils {
 
   public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
     return map.entrySet()
-    .stream()
-    .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
-    .collect(Collectors.toMap(
-    Map.Entry::getKey,
-    Map.Entry::getValue,
-    (e1, e2) -> e1,
-    LinkedHashMap::new
-    ));
+        .stream()
+        .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
+        .collect(Collectors.toMap(
+            Map.Entry::getKey,
+            Map.Entry::getValue,
+            (e1, e2) -> e1,
+            LinkedHashMap::new
+        ));
   }
 
   public static String dateDifference(Date startDate, Date endDate) {
@@ -78,13 +78,13 @@ public class Utils {
 
   public static String getDomain(String url) {
     if (url == null || url.length() == 0)
-    return "";
+      return "";
 
     int doubleslash = url.indexOf("//");
     if (doubleslash == -1)
-    doubleslash = 0;
+      doubleslash = 0;
     else
-    doubleslash += 2;
+      doubleslash += 2;
 
     int end = url.indexOf('/', doubleslash);
     end = end >= 0 ? end : url.length();

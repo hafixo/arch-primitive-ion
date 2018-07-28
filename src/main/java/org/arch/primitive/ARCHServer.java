@@ -50,7 +50,7 @@ public class ARCHServer {
     SpringApplication.run(ARCHServer.class, args);
   }
 
-  public static Ionizer getIonizer(){
+  public static Ionizer getIonizer() {
     return adServers;
   }
 
@@ -212,9 +212,9 @@ public class ARCHServer {
   @GetMapping("/login.html")
   public String login(Map<String, Object> model) {
     String app_version = "";
-    try{
+    try {
       app_version = this.getClass().getPackage().getImplementationVersion().trim();
-    }catch(Exception e){
+    } catch (Exception e) {
       log.warn("Failed to get app version from jar...");
       app_version = "0.0.0";
     }
@@ -232,13 +232,13 @@ public class ARCHServer {
     adServers = new Ionizer(hostsSources);
 
     HttpProxyServer server =
-    DefaultHttpProxyServer.bootstrap()
-    .withPort(Integer.valueOf(node_port))
-    .withAllowLocalOnly(false)
-    .withTransparent(true)
-    .withServerResolver(new RelayDNSResolver(adServers))
-    .withName("ARCH primitive-ion")
-    .start();
+        DefaultHttpProxyServer.bootstrap()
+            .withPort(Integer.valueOf(node_port))
+            .withAllowLocalOnly(false)
+            .withTransparent(true)
+            .withServerResolver(new RelayDNSResolver(adServers))
+            .withName("ARCH primitive-ion")
+            .start();
 
     return server;
   }

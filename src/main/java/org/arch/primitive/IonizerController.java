@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class IonizerController {
 
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
+  private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping(value = "/adservers/update", method = RequestMethod.GET)
-	@ResponseBody
-	public String updateIonizer(Model model) {
+  @RequestMapping(value = "/adservers/update", method = RequestMethod.GET)
+  @ResponseBody
+  public String updateIonizer(Model model) {
 
-		Ionizer adServers = ARCHServer.getIonizer();
-		boolean updated = adServers.downloadIonizerList();
-		adServers.loadListFromHostsFileFormat(null);
+    Ionizer adServers = ARCHServer.getIonizer();
+    boolean updated = adServers.downloadIonizerList();
+    adServers.loadListFromHostsFileFormat(null);
 
-		if (!updated) {
-			return "Something went wrong. Could not update ad servers list.";
-		}
-		return "Successfully updated. <br/>Loaded "+adServers.getNumberOfLoadedIonizer()+" ad servers.";
+    if (!updated) {
+      return "Something went wrong. Could not update ad servers list.";
+    }
+    return "Successfully updated. <br/>Loaded " + adServers.getNumberOfLoadedIonizer() + " ad servers.";
 
-	}
+  }
 
 }

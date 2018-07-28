@@ -36,17 +36,17 @@ public class Updater {
 
   private RequestConfig requestConfig(int timeoutMillis) {
     RequestConfig requestConfig = RequestConfig.custom()
-    .setConnectionRequestTimeout(timeoutMillis)
-    .setConnectTimeout(timeoutMillis)
-    .setSocketTimeout(timeoutMillis)
-    .build();
+        .setConnectionRequestTimeout(timeoutMillis)
+        .setConnectTimeout(timeoutMillis)
+        .setSocketTimeout(timeoutMillis)
+        .build();
     return requestConfig;
   }
 
   public String getLatestDistJar() {
     CloseableHttpClient httpclient = HttpClients.custom()
-    .setUserAgent(sabproxyUserAgent)
-    .build();
+        .setUserAgent(sabproxyUserAgent)
+        .build();
     CloseableHttpResponse response = null;
     HttpEntity entity = null;
     HttpGet httpGet = new HttpGet(currentPublicVersionURL);
@@ -112,8 +112,8 @@ public class Updater {
       FileUtils.fileWrite(tempUpgradeFlagFile, "Upgrade in progress. Downloading " + downloadUpdateFile);
 
       CloseableHttpClient client = HttpClients.custom()
-      .setUserAgent(sabproxyUpdaterUserAgent)
-      .build();
+          .setUserAgent(sabproxyUpdaterUserAgent)
+          .build();
       HttpGet request = new HttpGet(downloadUpdateFile);
       HttpResponse response = client.execute(request);
       HttpEntity entity = response.getEntity();

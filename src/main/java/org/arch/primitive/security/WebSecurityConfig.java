@@ -13,27 +13,27 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @ComponentScan("org.arch.primitive.security")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private ARCHAuthenticationProvider authProvider;
+  @Autowired
+  private ARCHAuthenticationProvider authProvider;
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-		.csrf().disable()
-		.authorizeRequests()
-		.antMatchers("/login*", "/css/*", "/js/*", "/fonts/*").permitAll()
-		.anyRequest().authenticated()
-		.and()
-		.formLogin()
-		.loginPage("/login.html")
-		.defaultSuccessUrl("/")
-		.failureUrl("/login.html?error=true")
-		.and()
-		.logout().logoutSuccessUrl("/login.html");
-	}
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+        .csrf().disable()
+        .authorizeRequests()
+        .antMatchers("/login*", "/css/*", "/js/*", "/fonts/*").permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/login.html")
+        .defaultSuccessUrl("/")
+        .failureUrl("/login.html?error=true")
+        .and()
+        .logout().logoutSuccessUrl("/login.html");
+  }
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.authenticationProvider(authProvider);
-	}
+  @Autowired
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.authenticationProvider(authProvider);
+  }
 }
