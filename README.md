@@ -92,6 +92,12 @@ $ iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 7878 -j DNAT --to-desti
 
 ```
 
+Run the container as system boot up forever,
+
+```bash
+$ docker run --restart=always -p 7878:7878 loouislow81/arch-primitive-ion /bin/bash /home/arch-primitive/primitive-ion.sh -r
+```
+
 Set up as proxy, use the local ip address or (0.0.0.0, 127.0.0.1, localhost), port number is 7878 across these protocols HTTP, HTTPS, FTP & SOCKS.
 
 **(( ! ))** You can close the Terminal that running the Docker Container, the arch-primitive will keep running at background, until you restart the system or the Docker services.

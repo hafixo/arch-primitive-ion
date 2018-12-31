@@ -11,7 +11,7 @@
 ver="0.9.7.5"
 
 # path
-fullPath="/home/$USER/Documents/play/playground/arch-primitive-ion"
+fullPath="/home/loouis/Documents/play/playground/arch-primitive-ion"
 
 # ansi
 blue='\e[94m'
