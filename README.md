@@ -98,6 +98,12 @@ Run the container as system boot up forever,
 $ docker run --restart=always -p 7878:7878 loouislow81/arch-primitive-ion /bin/bash /home/arch-primitive/primitive-ion.sh -r
 ```
 
+Remove the container,
+
+```bash
+$ docker rmi -f loouislow81/arch-primitive-ion:latest
+```
+
 Set up as proxy, use the local ip address or (0.0.0.0, 127.0.0.1, localhost), port number is 7878 across these protocols HTTP, HTTPS, FTP & SOCKS.
 
 **(( ! ))** You can close the Terminal that running the Docker Container, the arch-primitive will keep running at background, until you restart the system or the Docker services.
