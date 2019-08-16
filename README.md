@@ -1,5 +1,9 @@
 # arch-primitive-ion
 
+<p align="left">
+  <img src="logo@ori.png" height="100">
+</p>
+
 **!! (rebooted version for IntelliJ IDEA IDE) !!**
 
 Ultra high performance network relay for embedded system **(commercially obsolete)**
@@ -10,9 +14,9 @@ Ultra high performance network relay for embedded system **(commercially obsolet
 > You might also want to chech the previous version [**arch-primitive**](https://github.com/loouislow81/arch-primitive)
 
 <p align="left">
-  <img src="Screenshot_1.png" height="400">
   <img src="Screenshot_2.png" height="400">
   <img src="Screenshot_3.png" height="400">
+  <img src="Screenshot_1.png" height="400">
 </p>
 
 ---
