@@ -14,9 +14,9 @@ Ultra high performance network relay for embedded system **(commercially obsolet
 > You might also want to chech the previous version [**arch-primitive**](https://github.com/loouislow81/arch-primitive)
 
 <p align="left">
-  <img src="Screenshot_2.png" height="250">
-  <img src="Screenshot_3.png" height="250">
-  <img src="Screenshot_1.png" height="250">
+  <img src="Screenshot_2.png" width="420">
+  <img src="Screenshot_3.png" width="420">
+  <img src="Screenshot_1.png" width="420">
 </p>
 
 ---
